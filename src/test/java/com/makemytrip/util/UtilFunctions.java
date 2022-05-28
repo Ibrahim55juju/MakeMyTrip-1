@@ -187,8 +187,8 @@ public class UtilFunctions extends BaseClass {
 				}
 				if (j == 2) {
 					Cell cell = row.getCell(j);
-					String value = cell.getStringCellValue().replace(" hrs ", "").replace(" hrs", "")
-							.replace(" mins", "").trim();
+					String value = cell.getStringCellValue().replace(" h ", "").replace(" h", "")
+							.replace(" m", "").trim();
 				//	System.out.println(value);
 
 					int duration = Integer.parseInt(value);
@@ -242,7 +242,7 @@ public class UtilFunctions extends BaseClass {
 		FileInputStream fis = new FileInputStream(f);
 		Workbook wb = new XSSFWorkbook(fis);
 
-		Sheet sheetAt = wb.getSheetAt(0);
+		Sheet sheetAt = wb.getSheet("Flight_Details");
 		Row createRow = sheetAt.createRow(rowCount);
 
 		Cell c0 = createRow.createCell(0);
@@ -256,6 +256,7 @@ public class UtilFunctions extends BaseClass {
 
 		FileOutputStream fos = new FileOutputStream(f);
 		wb.write(fos);
+		wb.close();
 	}
 
 }

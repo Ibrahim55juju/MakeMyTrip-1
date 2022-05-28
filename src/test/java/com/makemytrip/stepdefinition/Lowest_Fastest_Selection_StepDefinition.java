@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.aventstack.extentreports.Status;
@@ -41,11 +42,21 @@ public class Lowest_Fastest_Selection_StepDefinition extends BaseClass {
 
 	@When("^User filter the low to high option from the drop down$")
 	public void user_filter_the_low_to_high_option_from_the_drop_down() throws Throwable {
-		flightInfo.getSortByPrice().click();
-		test.log(Status.INFO, "Clicked on Sort By Price");
-		Thread.sleep(2000);
-		flightInfo.getLowToHigh().click();
-		test.log(Status.INFO, "Clicked on Low to High Option");
+		try {
+			try {
+				// new pop up
+			//	driver.findElement(By.xpath("//button[contains(text(),'OKAY')]")).click();
+			} catch (Exception e) {
+				throw new Exception("Pop up is not present");
+			}
+			// flightInfo.getSortByPrice().click();
+			test.log(Status.INFO, "Clicked on Sort By Price");
+			Thread.sleep(2000);
+			// flightInfo.getLowToHigh().click();
+			test.log(Status.INFO, "Clicked on Low to High Option");
+		} catch (Exception e) {
+			throw new Exception();
+		}
 	}
 
 	@When("^User counts the number of flights in the filtered list$")
@@ -75,11 +86,12 @@ public class Lowest_Fastest_Selection_StepDefinition extends BaseClass {
 		try {
 			flightDurations = flightInfo.getflightDurations();
 			for (WebElement price : flightDurations) {
-				String duration = price.getText().replace(" hrs ", "").replace(" hrs", "").replace(" mins", "").trim();
+				String duration = price.getText().replace(" h ", "").replace(" h ", "").replace(" m ", "")
+						.replace(" m ", "").trim();
 				DuraionList.add(duration);
 			}
-			
-			Minimum_Duration = Collections.min(DuraionList);
+
+			Minimum_Duration = Collections.min(DuraionList).replace("m", "").replace(" ", "");
 			System.out.println("Fastest Flight in hrs: " + Minimum_Duration);
 		} catch (Exception e) {
 			System.out.println("Empty Duration list");
@@ -93,14 +105,14 @@ public class Lowest_Fastest_Selection_StepDefinition extends BaseClass {
 		Flight_Name = UtilFunctions.readFlightNameFromData(Lowest_Price, parseInt);
 		System.out.println("Flight Name is: " + Flight_Name);
 	}
-	
+
 	@Then("^User verifies that the selected option is lowest and fastest$")
 	public void user_verifies_that_the_selected_option_is_lowest_and_fastest() throws Throwable {
 
 		System.out.println("\t" + "Price  " + "          Duration");
 		for (int i = 0; i < flightPrices.size(); i++) {
 
-			System.out.print("\t" + flightPrices.get(i).getText() + "     ");
+			System.out.print("\t" + flightPrices.get(i).getText().replace("₹", "Rs.") + "     ");
 			System.out.println("\t" + flightDurations.get(i).getText());
 		}
 		test.log(Status.INFO, "Retreived all the Flight Info");

@@ -13,25 +13,25 @@ import com.makemytrip.baseclass.BaseClass;
 public class SelectFlightPage extends BaseClass {
 	public static WebDriver driver;
 
-	@FindBy(xpath = "//*[@id='sorter_btn_onward']/span")
+	@FindBy(xpath = "//*[@id='sorting-togglers']/div[3]/div/span/span[1]")
 	private WebElement sortByPrice;
 
 	@FindBy(xpath = "//*[@id='left-side--wrapper']/div/div/div[1]/div[1]/div/div[2]/ul/li[1]/a/p")
 	private WebElement lowToHigh;
 
-	@FindBy(xpath = "//*[@id='ow-domrt-jrny']/div/div/label/div[2]/div[3]/div/p/span")
+	@FindBy(xpath = "(//div[@class='paneView'])[1]//*[contains(@id,'flightCard')]//descendant::div[@class='makeFlex column relative splitfare ']/p")
 	private List<WebElement> flightPrices;
 
-	@FindBy(xpath = "//*[@id='ow-domrt-jrny']/div/div/label/div[2]/div[2]/div/div/div/div/label/div[2]/p[1]")
+	@FindBy(xpath = "(//div[@class='paneView'])[1]//*[contains(@id,'flightCard')]/div/div[2]/div[1]/div[2]/p")
 	private List<WebElement> flightDurations;
 
-	@FindBy(xpath = "//*[@id='ow-domrt-jrny']/div/div[2]/label/div[1]/span[1]")
+	@FindBy(xpath = "(//*[contains(@id,'flightCard')]/div/div[2]/div[2]/span/span[@class='outer'])[1]")
 	private WebElement selectFlight;
 
-	@FindBy(xpath = "//button[text()='Book Now']//parent::div//preceding-sibling::div/a[text()='Fare Details']")
+	@FindBy(xpath = "(//*[contains(@id,'flightCard')]/div/div[2]/div[2]/div/p)[1]")
 	private WebElement fare_Details;
 
-	@FindBy(xpath = "//div/a[text()='Fare Details']//parent::div//following-sibling::div/button[text()='Book Now']")
+	@FindBy(xpath = "//button[contains(text(),'Book Now')]")
 	private WebElement bookNow_Button;
 
 	@FindBy(xpath = "//*[@id='ow-domrt-jrny']/div/div[2]/label/div[1]/span[2]/span")
@@ -46,7 +46,7 @@ public class SelectFlightPage extends BaseClass {
 	@FindBy(xpath = "//*[@id='rev-header']/div/div/div/h4[text()='Review your booking']")
 	private WebElement reviewAndConfirm;
 
-	@FindBy(xpath = "(//div[@class='itnry-flt-body fli-list clearfix'])[1]/div/div/div/p")
+	@FindBy(xpath = "//*[@id='JOURNEY_SECTION']/div/div/div[1]/section/div[2]/div[1]/div[1]/p/span")
 	private List<WebElement> reviewdFlightName;
 
 	public SelectFlightPage(WebDriver ldriver) {

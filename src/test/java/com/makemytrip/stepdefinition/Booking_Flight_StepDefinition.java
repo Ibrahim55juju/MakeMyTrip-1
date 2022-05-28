@@ -1,10 +1,12 @@
 package com.makemytrip.stepdefinition;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -74,8 +76,9 @@ public class Booking_Flight_StepDefinition extends BaseClass {
 
 			System.out.println("Flight Booked");
 			test.log(Status.INFO, "Flight Booked");
+			}
 
-		} catch (Exception e) {
+		catch (Exception e) {
 			throw new Exception("Unable to book");
 		}
 	}
@@ -98,9 +101,9 @@ public class Booking_Flight_StepDefinition extends BaseClass {
 			
 			String actual = SelectedFlightName.replace(" |", "");
 			String expected = BookedFlightName.replace(" |", "");
-			assertEquals(actual, expected);
-			System.out.println("Validation completed");
-			test.log(Status.INFO, "Validation completed");
+			assertTrue(expected.contains(actual));
+			System.out.println("Validation completed Successfully");
+			test.log(Status.INFO, "Validation completed Successfully");
 
 		} catch (Exception e) {
 			throw new Exception("validation didnt complete");

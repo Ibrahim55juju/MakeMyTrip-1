@@ -15,19 +15,19 @@ public class AllFlightInfoPage extends BaseClass {
 
 	public static WebDriver driver;
 
-	@FindBy(xpath = "//div[@id='ow-domrt-jrny']/div/div[contains(@class,'fli-list splitVw-listing ')]")
-	private List<WebElement> allFlightInfo;
+	//@FindBy(xpath = "//div[@id='ow-domrt-jrny']/div/div[contains(@class,'fli-list splitVw-listing ')]")
+	//private List<WebElement> allFlightInfo;
 
-	@FindBy(xpath = "//div[@id='ow-domrt-jrny']/div/div[contains(@class,'fli-list splitVw-listing ')]//descendant ::span[1][contains(@class,'insertSep')]")
+	@FindBy(xpath = "(//div[@class='paneView'])[1]//*[contains(@id,'flightCard')]/div/div[1]/span/span")
 	private List<WebElement> flightName;
 
-	@FindBy(xpath = "//div[@id='ow-domrt-jrny']/div/div[contains(@class,'fli-list splitVw-listing ')]//descendant::label/div/div[@class='dept-time']")
+	@FindBy(xpath = "(//div[@class='paneView'])[1]//*[contains(@id,'flightCard')]/div/div[2]/div[1]/div[1]/div[1]/p[1]/span")
 	private List<WebElement> deptTime;
 
-	@FindBy(xpath = "//div[@id='ow-domrt-jrny']/div/div[contains(@class,'fli-list splitVw-listing ')]//descendant::div/p[@class='fli-duration']")
+	@FindBy(xpath = "(//div[@class='paneView'])[1]//*[contains(@id,'flightCard')]/div/div[2]/div[1]/div[2]/p")
 	private List<WebElement> duration;
 
-	@FindBy(xpath = "//div[@id='ow-domrt-jrny']/div/div[contains(@class,'fli-list splitVw-listing ')]//descendant::div/p/span[@class='actual-price']")
+	@FindBy(xpath = "(//div[@class='paneView'])[1]//*[contains(@id,'flightCard')]/div/div[2]/div[2]/div/p")
 	private List<WebElement> amount;
 
 	public AllFlightInfoPage(WebDriver ldriver) {
@@ -35,9 +35,9 @@ public class AllFlightInfoPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	public List<WebElement> getallFlightInfo() {
-		return allFlightInfo;
-	}
+	//public List<WebElement> getallFlightInfo() {
+	//	return allFlightInfo;
+	//}
 
 	public List<WebElement> getFlightName() {
 		return flightName;

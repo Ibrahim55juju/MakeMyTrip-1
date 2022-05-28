@@ -107,7 +107,7 @@
 					<parallel>classes</parallel>
 					<forkCount>4</forkCount>
 					<includes>
-						<include>**/*Run*.java</include>
+						<include>**/*RunWithChrome*.java</include>
 					</includes>
 				</configuration>
 			</plugin>
