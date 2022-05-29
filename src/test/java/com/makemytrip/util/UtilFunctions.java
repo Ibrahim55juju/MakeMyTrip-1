@@ -76,7 +76,7 @@ public class UtilFunctions extends BaseClass {
 	public static String departureDate;
 	public static String returnDate;
 
-	public static UtilFunctions getCurrentAndReturnDates() {
+	public static UtilFunctions getCurrentAndReturnDates() throws Exception {
 		UtilFunctions date = new UtilFunctions();
 		Calendar cal = Calendar.getInstance();
 
@@ -84,6 +84,7 @@ public class UtilFunctions extends BaseClass {
 
 		String[] dateArr = cal.getTime().toString().split(" ");
 		UtilFunctions.departureDate = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[5];
+		Thread.sleep(2000);
 		cal.add(Calendar.DATE, Integer.parseInt(prop.getProperty("NoOfdays")));
 		dateArr = cal.getTime().toString().split(" ");
 		UtilFunctions.returnDate = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[5];

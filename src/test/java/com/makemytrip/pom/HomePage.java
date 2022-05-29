@@ -116,13 +116,14 @@ public class HomePage extends BaseClass {
 		firstOption.click();
 	}
 
-	public void enterDepartureDate() {
+	public void enterDepartureDate() throws Exception {
 		departureDrop.click();
 		UtilFunctions date = UtilFunctions.getCurrentAndReturnDates();
 		driver.findElement(UtilFunctions.customXpath(departureDate, date.departureDate)).click();
 	}
 
-	public void enterReturnDate() {
+	public void enterReturnDate() throws Exception {
+		Thread.sleep(2000);
 		returnDrop.click();
 		UtilFunctions date = UtilFunctions.getCurrentAndReturnDates();
 		driver.findElement(UtilFunctions.customXpath(returnDate, date.returnDate)).click();
