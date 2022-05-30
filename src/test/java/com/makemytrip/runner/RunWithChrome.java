@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resource/com/makemytrip/feature/BookAFlight.feature", 
 				  glue = "com\\makemytrip\\stepdefinition", 
-				  plugin = ("json:Report/CucumberTestReport.json"),
+				  plugin = {"json:target/cucumber.json"},
 				  monochrome = true, 
 				  strict = true, 
 				  dryRun = false
