@@ -70,7 +70,7 @@ public class Search_Flight_StepDefinition extends BaseClass {
 	@When("^User enter the return date$")
 	public void user_enter_the_Return_date() throws Throwable {
 		Thread.sleep(2000);
-	//	hp.enterReturnDate();
+		hp.enterReturnDate();
 		test.log(Status.INFO, "Entered return date");
 	}
 

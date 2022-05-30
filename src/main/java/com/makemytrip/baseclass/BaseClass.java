@@ -129,6 +129,7 @@ public class BaseClass {
 		try {
 			driver.get(prop.getProperty("url"));
 			pageLoadWait();
+			Thread.sleep(5000);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			driver.manage().deleteAllCookies();
